@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Chrome Text</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700,900&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 70%, #533a71 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', monospace;
+            overflow-x: auto;
+        }
+
+        .chrome-text {
+            font-size: clamp(3rem, 15vw, 8rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: linear-gradient(
+                180deg,
+                #ffffff 0%,
+                #ffffff 3%,
+                #f0f0f0 6%,
+                #e0e0e0 10%,
+                #ff6129 18%,
+                #cc4a1f 22%,
+                #8b3419 26%,
+                #1a1a1a 30%,
+                #000000 35%,
+                #111111 40%,
+                #2a2a2a 45%,
+                #ff6129 50%,
+                #ffffff 55%,
+                #ffffff 58%,
+                #e0e0e0 62%,
+                #cc4a1f 68%,
+                #8b3419 72%,
+                #000000 78%,
+                #ffffff 82%,
+                #ffffff 85%,
+                #f0f0f0 90%,
+                #ffffff 100%
+            );
+            background-size: 100% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: chrome-reflect 3s ease-in-out infinite;
+            position: relative;
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.6)) 
+                   drop-shadow(0 6px 12px rgba(255, 97, 41, 0.4))
+                   drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+        }
+
+        .chrome-text::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(
+                180deg,
+                #ffffff 0%,
+                #cccccc 15%,
+                #999999 25%,
+                #ff6129 35%,
+                #aa3d1a 45%,
+                #333333 55%,
+                #ffffff 65%,
+                #dddddd 75%,
+                #888888 85%,
+                #111111 100%
+            );
+            background-size: 100% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            z-index: -1;
+            filter: blur(0.5px);
+            opacity: 0.9;
+            animation: chrome-reflect 3s ease-in-out infinite reverse;
+        }
+
+        .chrome-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: linear-gradient(
+                180deg,
+                #000000 0%,
+                #333333 20%,
+                #666666 35%,
+                #ff6129 50%,
+                #cc4a1f 65%,
+                #222222 80%,
+                #000000 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            z-index: -2;
+            opacity: 1;
+        }
+
+        @keyframes chrome-reflect {
+            0% { background-position: 0% 0%; }
+            20% { background-position: 0% 25%; }
+            40% { background-position: 0% 50%; }
+            60% { background-position: 0% 75%; }
+            80% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 4vw, 2rem);
+            color: #ff6129;
+            margin-top: 1rem;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(255, 97, 41, 0.8),
+                        0 0 40px rgba(255, 97, 41, 0.6),
+                        0 0 60px rgba(255, 97, 41, 0.4);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { 
+                text-shadow: 0 0 20px rgba(255, 97, 41, 0.8),
+                           0 0 40px rgba(255, 97, 41, 0.6),
+                           0 0 60px rgba(255, 97, 41, 0.4); 
+            }
+            to { 
+                text-shadow: 0 0 30px rgba(255, 97, 41, 1),
+                           0 0 60px rgba(255, 97, 41, 0.8),
+                           0 0 90px rgba(255, 97, 41, 0.6),
+                           0 0 120px rgba(255, 255, 255, 0.3); 
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .chrome-text {
+                font-size: clamp(2rem, 12vw, 6rem);
+                letter-spacing: 0.05em;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="chrome-text" data-text="RETRO">RETRO</h1>
+        <p class="subtitle">Chrome Vibes</p>
+    </div>
+</body>
+</html>
